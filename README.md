@@ -1,2 +1,2 @@
 # gabor
-This is a demo of gabor feature 
+This is a demo of gabor feature extraction 
