@@ -1,23 +1,12 @@
-__author__ = 'lonely'
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 15 20:10:45 2017
-
-@author: lonely
-"""
+__author__ = 'lee'
 import cv2
 import numpy as np
 from math import pi
-from sklearn import preprocessing
-from sklearn.ensemble import RandomForestClassifier
 from skimage.filters import gabor
 
 merge = cv2.imread('merge.tiff', 0)
-
 height, width = merge.shape
-
 img1 = cv2.imread('1.tiff', 0)
-
 img2 = cv2.imread('2.tiff', 0)
 
 train = 100
@@ -53,19 +42,7 @@ for i in range(train):
     print classify_mat[k]
     k += 1
     label.append(1)
+
+
 np.savetxt('train.txt',classify_mat)
 np.savetxt('label.txt',label)
-"""clf = RandomForestClassifier(random_state=9)
-RandomForest = clf.fit(classify_mat, label)
-k = 0
-result = np.zeros([height, width], np.uint)
-for i in range(0, 500):
-    for j in range(0, 500):
-        mat = merge[i:i + 3, j:j + 3]
-        matx = get_gabor_feature(mat)
-        if clf.predict([matx]) == [0]:
-            result[i:i + 3, j:j + 3] = 0
-        else:
-            result[i:i + 3, j:j + 3] = 255
-            k += 1
-cv2.imwrite('res.tiff', result)"""
